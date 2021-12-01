@@ -1,3 +1,5 @@
+import json
+
 import pymysql
 from dateutil.parser import parse
 
@@ -72,6 +74,7 @@ def update_data(coin_data):
         circulating_supply = str(coin_data[single_coin_data]['circulating_supply'])
         total_supply = str(coin_data[single_coin_data]['total_supply'])
         last_updated = str(parse(coin_data[single_coin_data]['last_updated']).timestamp())
+        quote = coin_data[single_coin_data]['quote']
         sql_list.append("INSERT INTO crypto(" +
                         "_id," +
                         "_name," +
@@ -105,8 +108,59 @@ def update_data(coin_data):
                         "_last_updated=" + last_updated +
                         ";"
                         )
-        quote = coin_data[single_coin_data]['quote']
-        # print(quote)
+        for single_quote in quote:
+            find_sql = []
+            crypto_id = id
+            price = str(quote[single_quote]["price"])
+            volume_24h = str(quote[single_quote]["volume_24h"])
+            volume_change_24h = str(quote[single_quote]["volume_change_24h"])
+            percent_change_1h = str(quote[single_quote]["percent_change_1h"])
+            percent_change_24h = str(quote[single_quote]["percent_change_24h"])
+            percent_change_7d = str(quote[single_quote]["percent_change_7d"])
+            percent_change_30d = str(quote[single_quote]["percent_change_30d"])
+            percent_change_60d = str(quote[single_quote]["percent_change_60d"])
+            percent_change_90d = str(quote[single_quote]["percent_change_90d"])
+            market_cap = str(quote[single_quote]["market_cap"])
+            market_cap_dominance = str(quote[single_quote]["market_cap_dominance"])
+            fully_diluted_market_cap = str(quote[single_quote]["fully_diluted_market_cap"])
+            quote_last_updated = str(parse(quote[single_quote]["last_updated"]).timestamp())
+            sql_string = "SELECT * FROM quote WHERE _crypto_id = "+crypto_id + " and _last_updated = "+quote_last_updated
+            find_sql.append(sql_string)
+            if(len(execute_sql(find_sql)) != 0):
+                print("exists")
+            else:
+                print("not exists")
+                sql_list.append("INSERT INTO quote(" +
+                           "_crypto_id," +
+                           "_price," +
+                           "_volume_24h," +
+                           "_volume_change_24h," +
+                           "_percent_change_1h," +
+                           "_percent_change_24h," +
+                           "_percent_change_7d," +
+                           "_percent_change_30d," +
+                           "_percent_change_60d," +
+                           "_percent_change_90d," +
+                           "_market_cap," +
+                           "_market_cap_dominance," +
+                           "_fully_diluted_market_cap," +
+                           "_last_updated" +
+                           ") " +
+                           "VALUES(" +
+                           crypto_id + "," +
+                           price + "," +
+                           volume_24h + "," +
+                           volume_change_24h + "," +
+                           percent_change_1h + "," +
+                           percent_change_24h + "," +
+                           percent_change_7d + "," +
+                           percent_change_30d + "," +
+                           percent_change_60d + "," +
+                           percent_change_90d + "," +
+                           market_cap + "," +
+                           market_cap_dominance + "," +
+                           fully_diluted_market_cap + "," +
+                           quote_last_updated + ")")
     execute_sql(sql_list)
 
 
@@ -120,6 +174,10 @@ if __name__ == '__main__':
     #             "_int = 67, "
     #             "_bigint = 35234143151, "
     #             "_timestamp = 1367107200.0;"]
-    test_sql = ["select * from crypto"]
+
+    test_sql = ["select * from quote"]
+    print(len(execute_sql(test_sql)))
     for one in execute_sql(test_sql):
         print(one)
+
+
