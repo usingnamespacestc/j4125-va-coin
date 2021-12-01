@@ -45,8 +45,8 @@ def execute_sql(sql_list):
             # 执行sql语句
             sql = sql.replace("None", "NULL")
             cursor.execute(sql)
-            output = [tuple[0] for tuple in cursor]
             db.commit()
+            output = cursor.fetchall()
     except pymysql.Error as e:
         # 输出异常信息
         print(e.args)
@@ -123,5 +123,6 @@ if __name__ == '__main__':
     # test_ql = "drop table test"
     # test_sql = [
     #     "INSERT INTO crypto(_id,_name,_symbol,_num_market_pairs,_date_added,_max_supply,_circulating_supply,_total_supply,_last_updated) VALUES(1027,'Ethereum','ETH',4671,1438905600.0,None,118554060.3115,118554060.3115,1638308468.0) ON DUPLICATE KEY UPDATE _name='Ethereum',_symbol='ETH',_num_market_pairs=4671,_date_added=1438905600.0,_max_supply=None,_circulating_supply=118554060.3115,_total_supply=118554060.3115,_last_updated=1638308468.0;"]
-    test_sql = ["select _name from crypto where _id=1"]
-    print(execute_sql(test_sql))
+    test_sql = ["select * from crypto"]
+    for one in execute_sql(test_sql):
+        print(one)
