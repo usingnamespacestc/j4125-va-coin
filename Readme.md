@@ -42,7 +42,7 @@
 ```
 每次获取到的数据已经传到sqlController里了，怎么用直接看sqlController里写的。 假如执行的sql里有None的话需要在执行前替换成NULL否则报错。参见sqlController中的sql.replace处理。
 ### sqlController
-已经写好了写入和更新Crypto基本数据的example，quote如何写入和更新还没有写。读取还没有写。
+已经写好了crypto和quote的写入和更新。读取还没有写。
 ## 数据库定义
 注意，所有键名之前都加了一个下划线“_”。
 ### crypto表
