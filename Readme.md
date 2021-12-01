@@ -5,37 +5,37 @@
 这个基本就这样了没啥好写的。每次爬取到的数据大概长这样：
 ```json
 {
-    'id': 1, 
-    'name': 'Bitcoin', 
-    'symbol': 'BTC', 
-    'slug': 'bitcoin', 
-    'num_market_pairs': 8341, 
-    'date_added': '2013-04-28T00:00:00.000Z', 
-    'max_supply': 21000000, 
-    'circulating_supply': 18887343, 
-    'total_supply': 18887343, 
-    'is_active': 1, 
-    'platform': None, 
-    'cmc_rank': 1, 
-    'is_fiat': 0, 
-    'last_updated': '2021-11-30T17:14:10.000Z', 
-    'quote': 
+    "id": 1, 
+    "name": "Bitcoin", 
+    "symbol": "BTC", 
+    "slug": "bitcoin", 
+    "num_market_pairs": 8341, 
+    "date_added": "2013-04-28T00:00:00.000Z", 
+    "max_supply": 21000000, 
+    "circulating_supply": 18887343, 
+    "total_supply": 18887343, 
+    "is_active": 1, 
+    "platform": None, 
+    "cmc_rank": 1, 
+    "is_fiat": 0, 
+    "last_updated": "2021-11-30T17:14:10.000Z", 
+    "quote": 
     {
-        'USD': 
+        "USD": 
         {
-            'price': 56850.11343342416, 
-            'volume_24h': 39517373968.77659, 
-            'volume_change_24h': 22.6187, 
-            'percent_change_1h': -0.30333488, 
-            'percent_change_24h': -1.85333112, 
-            'percent_change_7d': -0.7809746, 
-            'percent_change_30d': -6.21907755, 
-            'percent_change_60d': 19.72236889, 
-            'percent_change_90d': 17.0509333, 
-            'market_cap': 1073747592005.9897, 
-            'market_cap_dominance': 41.3978, 
-            'fully_diluted_market_cap': 1193852382101.91, 
-            'last_updated': '2021-11-30T17:14:10.000Z'
+            "price": 56850.11343342416, 
+            "volume_24h": 39517373968.77659, 
+            "volume_change_24h": 22.6187, 
+            "percent_change_1h": -0.30333488, 
+            "percent_change_24h": -1.85333112, 
+            "percent_change_7d": -0.7809746, 
+            "percent_change_30d": -6.21907755, 
+            "percent_change_60d": 19.72236889, 
+            "percent_change_90d": 17.0509333, 
+            "market_cap": 1073747592005.9897, 
+            "market_cap_dominance": 41.3978, 
+            "fully_diluted_market_cap": 1193852382101.91, 
+            "last_updated": "2021-11-30T17:14:10.000Z"
         }
     }
 }
