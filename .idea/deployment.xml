@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="stc@va.unstc.site:226" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
+      <paths name="stc@va.unstc.site:226">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/stc/programs/coin" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="usingnamespacestc@unstc.site:226">
         <serverdata>
           <mappings>
@@ -17,5 +24,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
