@@ -1,1 +1,1 @@
- uvicorn main:app --host 0.0.0.0 --reload --port 34605
+/home/stc/anaconda3/envs/commonpy36/bin/uvicorn main:app --host 0.0.0.0 --reload --port 46059
