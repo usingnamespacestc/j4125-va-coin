@@ -1,5 +1,3 @@
-import json
-
 import pymysql
 from dateutil.parser import parse
 
@@ -162,6 +160,19 @@ def update_data(coin_data):
                            fully_diluted_market_cap + "," +
                            quote_last_updated + ")")
     execute_sql(sql_list)
+
+
+def get_crypto_list():
+    sql = 'select _name, _symbol from crypto order by _name'
+    return execute_sql([sql])
+
+
+def get_latest_price(symbol):
+    sql = 'select _last_updated, _price from quote ' \
+          'where _crypto_id = (select _id from crypto ' \
+          'where _symbol = "' + symbol + '") ' \
+          'order by _last_updated desc limit 1'
+    return execute_sql([sql])[0]
 
 
 if __name__ == '__main__':
